@@ -1,0 +1,69 @@
+DB testing
+MySql WorkBench : manuel programı kullandık
+JDBC lib        : automation olarak kullandık
+
+API testing
+POSTMAN         : manuel Api kullandık
+RestAssured lib : automation Api testing
+
+Given : hazırlık işlemleri (body,yetki, vs..)
+When  : link ve metod
+Then  : assertion, extract (id vs veri alma)
+
+------------------------------------------------------------------------------------------------------------------------
+
+COK ONEMLI
+
+https://jsonpathfinder.com/
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+pm                              RestAssured
+body.country                    body("country",
+body.'post code'                body("post code",
+body.places[0].'place name'     body("places[0].'place name'")
+body.places.'place name'        body("places.'place name'")   -> bütün place name leri verir
+                                bir index verilmezse dizinin bütün elemanlarında arar
+
+{
+    "post code": "90210",
+    "country": "United States",
+    "country abbreviation": "US",
+    "places": [
+        {
+            "place name": "Beverly Hills",
+            "longitude": "-118.4065",
+            "state": "California",
+            "state abbreviation": "CA",
+            "latitude": "34.0901"
+        },
+        {
+            "place name": "Beverly Hills",
+            "longitude": "-118.4065",
+            "state": "California",
+            "state abbreviation": "CA",
+            "latitude": "34.0901"
+        }
+    ]
+}
+
+
+{
+    "meta": {
+    "pagination": {
+        "total": 4252,       body("meta.pagination.total"  yani parantezler direk noktadır. [] yok ise
+
+------------------------------------------------------------------------------------------------------------------------
+
+dependencysi bulunan bir testi tek basina calistirmak istersen  kendinden once iki basamak dependency varsa calistiramaz
+sadece bir tane varsa calistirir
+
+
+
+interviewde orulmus :
+link :  https://l9njuzrhf3.execute-api.eu-west-1.amazonaws.com/prod/user
+apiKey verildiğinde
+Key ve value
+key  :   x-api-key
+value:   GwMco9Tpstd5vbzBzlzW9I7hr6E1D7w2zEIrhOra
